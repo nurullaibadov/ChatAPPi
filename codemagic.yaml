@@ -1,0 +1,38 @@
+workflows:
+  android-workflow:
+    name: ChatApp Android Build
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      flutter: stable
+      # Optional: create a Codemagic environment variable group called
+      # "firebase" containing GOOGLE_SERVICES_JSON (the full content of your
+      # real google-services.json, base64-encoded). If it's not set, the
+      # build still succeeds — Firebase just won't be configured yet.
+      # groups:
+      #   - firebase
+    scripts:
+      - name: Inject google-services.json (if provided)
+        script: |
+          if [ -n "$GOOGLE_SERVICES_JSON" ]; then
+            echo "$GOOGLE_SERVICES_JSON" | base64 --decode > "$CM_BUILD_DIR/android/app/google-services.json"
+            echo "google-services.json installed."
+          else
+            echo "GOOGLE_SERVICES_JSON not set — building without Firebase config."
+          fi
+      - name: Get Flutter packages
+        script: |
+          flutter packages pub get
+      - name: Build Android APK (debug-signed release)
+        script: |
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/**/*.apk
+      - build/app/outputs/**/mapping.txt
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients: []
+        notify:
+          success: true
+          failure: true

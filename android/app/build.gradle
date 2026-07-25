@@ -2,7 +2,6 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
-    id "com.google.gms.google-services"
 }
 
 def localProperties = new Properties()
@@ -66,4 +65,13 @@ flutter {
 dependencies {
     implementation platform("com.google.firebase:firebase-bom:33.4.0")
     implementation "androidx.multidex:multidex:2.0.1"
+}
+
+// IMPORTANT: The Google Services (Firebase) Gradle plugin crashes the build
+// if android/app/google-services.json does not exist. We only apply it when
+// the file is actually present, so the app still builds even before you've
+// connected a real Firebase project. Once you add the real
+// google-services.json here, Firebase features will work automatically.
+if (file("google-services.json").exists()) {
+    apply plugin: "com.google.gms.google-services"
 }
