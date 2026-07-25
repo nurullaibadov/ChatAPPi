@@ -27,7 +27,7 @@ dependencies:
   # Media
   image_picker: ^1.1.2
   cached_network_image: ^3.4.1
-  record: ^5.1.2
+  record: ^7.0.0
   just_audio: ^0.9.40
 
   # Notifications
