@@ -1,0 +1,37 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+flutter_*.log
+
+# Android
+android/local.properties
+android/.gradle/
+android/app/build/
+android/build/
+android/gradle-wrapper.jar
+*.iml
+.idea/
+local.properties
+*.jks
+*.keystore
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+*.xcworkspace
+
+# Firebase secrets (never commit real keys)
+google-services.json
+GoogleService-Info.plist
+
+# Misc
+.DS_Store
+*.log
