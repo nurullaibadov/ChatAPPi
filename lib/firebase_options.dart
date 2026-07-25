@@ -45,11 +45,11 @@ class DefaultFirebaseOptions {
 
   // REPLACE THESE WITH YOUR REAL FIREBASE CONFIG VALUES
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'YOUR_ANDROID_API_KEY',
-    appId: '1:YOUR_PROJECT_NUMBER:android:YOUR_APP_ID',
-    messagingSenderId: 'YOUR_PROJECT_NUMBER',
-    projectId: 'YOUR_PROJECT_ID',
-    storageBucket: 'YOUR_PROJECT_ID.appspot.com',
+    apiKey: 'AIzaSyDgT9To4V_eAnVtrIvOepvJFzzcukBG3MA',
+    appId: '1:603268390232:android:32c910b3039df6a40dd92d',
+    messagingSenderId: '603268390232',
+    projectId: 'niko-1146d',
+    storageBucket: 'niko-1146d.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
